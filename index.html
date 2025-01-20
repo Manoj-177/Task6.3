@@ -1,54 +1,48 @@
 <html>
 <head>
-    <title>JavaScript Pop-Up Boxes</title>
+    <title>Toggle Password Visibility</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
         }
-        button {
-            background-color: rgb(148, 240, 10);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
+        form{
+            width: 30%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .contain{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        label {
             font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #0d7207c2;
-        }
-        input {
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <button onclick="displayDate()">Display Date</button>
-    <input type="text" id="dateBox">
-    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <h3>Password Visibility Toggle</h3>
+    <div class="contain">
+        <form>
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <br><br>
+            <input type="checkbox" id="togglePassword" onclick="togglePasswordVisibility()"> Show Password
+        </form>
+    </div>
     <script>
-        function displayDate() {
-            const currentDate = new Date().toLocaleDateString();
-            document.getElementById("dateBox").value = currentDate;
-        }
-        function calculateFactorial() {
-            const n = parseInt(prompt("Enter a number to calculate its factorial:"));      
-            if (isNaN(n) || n < 0) {
-                alert("Please enter a valid non-negative number.");
-                return;
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById("password");
+            const checkbox = document.getElementById("togglePassword");
+            if (checkbox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
             }
-            let factorial = 1;
-            for (let i = 1; i <= n; i++) {
-                factorial *= i;
-            }
-            alert(`The factorial of ${n} is ${factorial}.`);
         }
     </script>
 </body>
