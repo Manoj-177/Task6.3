@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>JavaScript Pop-Up Boxes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            background-color: rgb(148, 240, 10);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0d7207c2;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="displayDate()">Display Date</button>
+    <input type="text" id="dateBox">
+    <button onclick="calculateFactorial()">Calculate Factorial</button>
+    <script>
+        function displayDate() {
+            const currentDate = new Date().toLocaleDateString();
+            document.getElementById("dateBox").value = currentDate;
+        }
+        function calculateFactorial() {
+            const n = parseInt(prompt("Enter a number to calculate its factorial:"));      
+            if (isNaN(n) || n < 0) {
+                alert("Please enter a valid non-negative number.");
+                return;
+            }
+            let factorial = 1;
+            for (let i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+            alert(`The factorial of ${n} is ${factorial}.`);
+        }
+    </script>
+</body>
+</html>
